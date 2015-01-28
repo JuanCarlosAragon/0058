@@ -121,4 +121,17 @@ public class Auction
             }
         }
     }
+    /**
+     * Devuelve un Array con todos los lotes por los que NO ha habido ninguna
+     * puja aún
+     */
+    public ArrayList getUnsold (){
+        ArrayList<Lot> unsold = new ArrayList<Lot>();
+        for(Lot lote : lots){
+            if(lote.getHighestBid() == null){
+                unsold.add(lote);
+            }
+        }
+        return unsold;
+    }
 }

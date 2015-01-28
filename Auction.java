@@ -100,4 +100,25 @@ public class Auction
             return null;
         }
     }
+    
+    /**
+     * Metodo que muestra por pantalla las características de los objetos 
+     * que se están subastando
+     */
+    public void close(){
+        for(Lot lote : lots){
+            System.out.println("Número de lote: " + lote.getNumber());
+            System.out.println("Descripción: " + lote.getDescription());
+            if(lote.getHighestBid() != null){
+                Bid highestBid = lote.getHighestBid();
+                Person bidder = highestBid.getBidder();
+                System.out.println("Puja mas alta: " + highestBid.getValue());
+                System.out.println("Autor de la puja: " + bidder.getName() +
+                                    "\n\n");
+            }
+            else{
+                System.out.println("\n\n");
+            }
+        }
+    }
 }

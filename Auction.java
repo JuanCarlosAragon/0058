@@ -97,14 +97,19 @@ public class Auction
     /**
      * Metodo que borra un lote de la subasta
      */
-    public void removeLot(int LotNumber){
+    public Lot removeLot(int lotNumber){
         Iterator<Lot> it = lots.iterator();
-        while(it.hasNext()){
-            Lot tempLot = it.next();
-            if(tempLot.getNumber() == LotNumber){
-                it.remove();
+        Lot searchLot = null;
+        if((lotNumber >= 1) && (lotNumber < nextLotNumber)){
+            while(it.hasNext()){
+                Lot tempLot = it.next();
+                if(tempLot.getNumber() == lotNumber){
+                    searchLot = tempLot;
+                    it.remove();
+                }
             }
         }
+        return searchLot;
     }
     
     /**

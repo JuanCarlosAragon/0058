@@ -94,6 +94,18 @@ public class Auction
         
         return searchLot;
     }
+    /**
+     * Metodo que borra un lote de la subasta
+     */
+    public void removeLot(int LotNumber){
+        Iterator<Lot> it = lots.iterator();
+        while(it.hasNext()){
+            Lot tempLot = it.next();
+            if(tempLot.getNumber() == LotNumber){
+                it.remove();
+            }
+        }
+    }
     
     /**
      * Metodo que muestra por pantalla las características de los objetos 
